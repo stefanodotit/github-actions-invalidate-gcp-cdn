@@ -1,0 +1,30 @@
+name: 'Pull Request'
+on:
+  pull_request:
+    branches:
+      - 'main'
+jobs:
+  deploy:
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - uses: 'actions/checkout@v4'
+      - uses: 'actions/setup-node@v4'
+        with:
+          node-version: '20'
+      - name: 'install'
+        run: 'npm ci && npm run build'
+      - name: 'npm test'
+        run: 'npm run test'
+      - name: 'npm lint'
+        run: 'npm run lint'
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.SA_GOOGLE_CLOUD_RUN_CREDENTIAL }}
+      - id: 'deploy-cloudrun'
+        name: 'Deploy'
+        uses: './'
+        with:
+          load_balancer_name: ${{ secrets.LOAD_BALANCER_NAME }}
+          path: '/*'

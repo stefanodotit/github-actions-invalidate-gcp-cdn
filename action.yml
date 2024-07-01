@@ -1,0 +1,36 @@
+name: "Invalid CDN cache on GCP"
+author: "Stefano Tagliabue"
+description: Use this action to invalidate CDN cache on GCP.
+
+inputs:
+  load_balancer_name:
+    description: Name of your load balancer
+    required: true
+
+  path:
+    description: The URL path that you want to invalidate; does not include the hostname; the path can use an explicit filename or a wildcard
+    required: true
+
+  host:
+    description: To invalidate for only one host, add the host option
+    required: false
+
+  gcloud_version:
+    description: |-
+      Version of the Cloud SDK to install. If unspecified or set to "latest",
+      the latest available gcloud SDK version for the target platform will be
+      installed. Example: "290.0.1".
+    required: false
+
+  gcloud_component:
+    description: |-
+      Version of the Cloud SDK components to install and use.
+    required: false
+
+branding:
+  icon: "code"
+  color: "yellow"
+
+runs:
+  using: "node20"
+  main: "dist/main/index.js"
