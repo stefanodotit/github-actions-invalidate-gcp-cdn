@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/google-github-actions/deploy-cloudrun.git"
+    "url": "https://github.com/stefanodotit/github-actions-invalidate-gcp-cdn"
   },
   "keywords": [
     "actions",
@@ -26,9 +26,9 @@
   "author": "Stefano Tagliabue",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/google-github-actions/deploy-cloudrun/issues"
+    "url": "https://github.com/stefanodotit/github-actions-invalidate-gcp-cdn/issues"
   },
-  "homepage": "https://github.com/google-github-actions/deploy-cloudrun#readme",
+  "homepage": "https://github.com/stefanodotit/github-actions-invalidate-gcp-cdn#readme",
   "dependencies": {
     "@actions/core": "^1.10.1",
     "@actions/exec": "^1.1.1",
